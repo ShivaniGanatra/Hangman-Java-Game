@@ -1,5 +1,7 @@
+# Plan
+
 ## Main
-* Holds verything
+* Holds everything
 
 ## UserInputs
 * property which we can instantiate in main and define as word
@@ -10,7 +12,7 @@
 ## Results
 * Property to store life
 * method -
-  * If letter in word is truee + word is changed and printed
+  * If letter in word is true + word is changed and printed
   * If letter in word is false -> Player loses a life + hangman is shown
 
 ## Words
