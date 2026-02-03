@@ -2,6 +2,8 @@
 
 ## Main
 * Holds everything
+* Add a for loop if all letters are capitalised then the users wins
+* If wrong letter counter reaches a certain amount then player loses
 
 ## UserInputs
 * property which we can instantiate in main and define as word

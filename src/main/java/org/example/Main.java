@@ -8,6 +8,7 @@ public class Main {
     static void main() {
         Words hangmanWord = new Words();
         Results results = new Results();
+
         for (String s : hangmanWord.wordList) {
             System.out.println(s);
         }
@@ -19,23 +20,27 @@ public class Main {
         ArrayList<String> charAsArrayList = hangmanWord.convertWordToStringsArrayList("randomword");
         System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
 
-        ArrayList<String> alteredWord = results.changeLetterToCapital(charAsArrayList, "o");
-        System.out.println(alteredWord);
+        String inputLetter = "O".toLowerCase();
+        ArrayList<String> alteredWord = hangmanWord.changeLetterToCapital(charAsArrayList, inputLetter);
+        System.out.println("alteredWord" + alteredWord);
+        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
 
-        ArrayList<String> alteredWordToHash = hangmanWord.convertWordToHash(alteredWord);
+        ArrayList<String> alteredWordToHash = hangmanWord.convertArraylistToHashArraylist(alteredWord);
         System.out.println("alteredWordToHash" + alteredWordToHash);
-
-        //String capitalisedCorrectLetter = results.changeLetterToCapital(charAsArrayList, "o");
-        //System.out.println("capitalisedCorrectLetter " +capitalisedCorrectLetter);
+        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
 
 
-        //String convertedWord = hangmanWord.convertWordToHash(capitalisedCorrectLetter);
-        //System.out.println("converted word = " + convertedWord);
-
-        //String alteredString = results.changeLetterToCapital(charAsArrayList,"O");
-        //System.out.println("altered string" + alteredString);
-
-
+        System.out.println(charAsArrayList);
+        Boolean containsLetter = results.checkIfWordIncludesLetter(charAsArrayList,"a");
+        System.out.println(containsLetter);
+        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
+        ArrayList<String> changeAgain = hangmanWord.convertArraylistToHashArraylist(charAsArrayList);
+        System.out.println(hangmanWord.convertArrayListToString(changeAgain));
+        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
+        ArrayList<String> alteredWord2 = hangmanWord.changeLetterToCapital(charAsArrayList, "d");
+        System.out.println(alteredWord2);
+        System.out.println(hangmanWord.convertArraylistToHashArraylist(alteredWord2));
+        System.out.printf("hello \n %s ","shivani");
 
     }
 }

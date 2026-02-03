@@ -9,7 +9,6 @@ public class Words {
     String[] words = sentence.split(" ");
     ArrayList<String> wordList = new ArrayList<String>(Arrays.asList(words));
 
-
     public String selectARandomWord() {
         Random random = new Random();
         int index = random.nextInt(words.length);
@@ -25,17 +24,30 @@ public class Words {
         return letters;
     };
 
-    public ArrayList<String> convertWordToHash(ArrayList<String> letters) {
-        for (int i = 0; i < letters.size(); i++) {
-            if(letters.get(i).matches("[a-z0-9]+")) {
-                letters.set(i,"/_") ;
+    public ArrayList<String> convertArraylistToHashArraylist(ArrayList<String> letters) {
+        //stop arraylist from mutating
+        ArrayList<String> copyOfLetters = new ArrayList<>(letters);
+        for (int i = 0; i < copyOfLetters.size(); i++) {
+            if(copyOfLetters.get(i).matches("[a-z]+")) {
+                copyOfLetters.set(i,"/_") ;
             }
         }
-        return letters;
+        return copyOfLetters;
     };
 
     public String convertArrayListToString(ArrayList<String> letters) {
         return letters.toString();
     }
+
+    public ArrayList<String> changeLetterToCapital(ArrayList<String> wordAsArrayList, String letter) {
+        for (int i = 0; i < wordAsArrayList.size(); i++) {
+            if(wordAsArrayList.get(i).equals(letter)){
+                wordAsArrayList.set(i, wordAsArrayList.get(i).toUpperCase());
+            }
+        }
+        return wordAsArrayList;
+    };
+
+
 }
 
