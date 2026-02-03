@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Main {
     static void main() {
         Words hangmanWord = new Words();
+        Results results = new Results();
         for (String s : hangmanWord.wordList) {
             System.out.println(s);
         }
@@ -15,11 +16,26 @@ public class Main {
 
         System.out.println("random word = " + randomWord);
 
-        ArrayList<String> charAsArrayList = hangmanWord.convertWordToStringcharArrayList(randomWord);
+        ArrayList<String> charAsArrayList = hangmanWord.convertWordToStringsArrayList("randomword");
         System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
 
-        String convertedWord = hangmanWord.convertWord(charAsArrayList);
-        System.out.println("converted word = " + convertedWord);
+        ArrayList<String> alteredWord = results.changeLetterToCapital(charAsArrayList, "o");
+        System.out.println(alteredWord);
+
+        ArrayList<String> alteredWordToHash = hangmanWord.convertWordToHash(alteredWord);
+        System.out.println("alteredWordToHash" + alteredWordToHash);
+
+        //String capitalisedCorrectLetter = results.changeLetterToCapital(charAsArrayList, "o");
+        //System.out.println("capitalisedCorrectLetter " +capitalisedCorrectLetter);
+
+
+        //String convertedWord = hangmanWord.convertWordToHash(capitalisedCorrectLetter);
+        //System.out.println("converted word = " + convertedWord);
+
+        //String alteredString = results.changeLetterToCapital(charAsArrayList,"O");
+        //System.out.println("altered string" + alteredString);
+
+
 
     }
 }
