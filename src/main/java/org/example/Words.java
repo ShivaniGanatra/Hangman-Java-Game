@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Words {
+
     public String sentence="monkey llama tiger elephant donkey, gorilla lion rhinoceros";
     String[] words = sentence.split(" ");
     ArrayList<String> wordList = new ArrayList<String>(Arrays.asList(words));
@@ -15,7 +16,7 @@ public class Words {
         return words[index];
     };
 
-    public ArrayList<String> convertWordToStringsArrayList(String word) {
+    public static ArrayList<String> convertWordToStringsArrayList(String word) {
         char[] charsArray = word.toCharArray();
         ArrayList<String> letters = new ArrayList<String>();
         for (int i = 0; i < charsArray.length; i++) {
@@ -24,28 +25,31 @@ public class Words {
         return letters;
     };
 
-    public ArrayList<String> convertArraylistToHashArraylist(ArrayList<String> letters) {
+    public static String convertStringArrayListToString(ArrayList<String> letters) {
+        return letters.toString().replace("[", "").replace("]", "");
+    }
+
+    public static String convertWordToHash(String letters) {
         //stop arraylist from mutating
-        ArrayList<String> copyOfLetters = new ArrayList<>(letters);
+        ArrayList<String> copyOfLetters = new ArrayList<>(convertWordToStringsArrayList(letters));
         for (int i = 0; i < copyOfLetters.size(); i++) {
             if(copyOfLetters.get(i).matches("[a-z]+")) {
                 copyOfLetters.set(i,"/_") ;
             }
         }
-        return copyOfLetters;
+        return convertStringArrayListToString(copyOfLetters);
     };
 
-    public String convertArrayListToString(ArrayList<String> letters) {
-        return letters.toString();
-    }
 
-    public ArrayList<String> changeLetterToCapital(ArrayList<String> wordAsArrayList, String letter) {
+
+    public static String changeLetterToCapital(String word, String letter) {
+        ArrayList<String> wordAsArrayList = new ArrayList<>(convertWordToStringsArrayList(word));
         for (int i = 0; i < wordAsArrayList.size(); i++) {
             if(wordAsArrayList.get(i).equals(letter)){
                 wordAsArrayList.set(i, wordAsArrayList.get(i).toUpperCase());
             }
         }
-        return wordAsArrayList;
+        return convertStringArrayListToString(wordAsArrayList);
     };
 
 
