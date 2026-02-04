@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import static org.example.Words.convertStringArrayListToString;
 public class Results {
 
     //validate result
@@ -14,13 +15,9 @@ public class Results {
 
     public void outputMessage(String hashedWord, ArrayList<String> lettersGuessed, int lives) {
         System.out.printf("""
-                The current word id %s\s
-                the letters you have guessed include %s\s
-                You have %d lives remaining""",hashedWord,lettersGuessed.toString(),lives);
-    }
-
-    public Boolean checkIfWordIncludesLetter(ArrayList<String> wordAsArrayList, String letter) {
-        return wordAsArrayList.contains(letter);
+                The current word is: %s\s
+                the letters you have guessed include: %s\s
+                You have %d lives remaining \n""",hashedWord,lettersGuessed,lives);
     }
 
     //if all letters are capitalised

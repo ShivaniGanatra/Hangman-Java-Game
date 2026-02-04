@@ -6,11 +6,10 @@ import java.util.Random;
 
 public class Words {
 
-    public String sentence="monkey llama tiger elephant donkey, gorilla lion rhinoceros";
-    String[] words = sentence.split(" ");
-    ArrayList<String> wordList = new ArrayList<String>(Arrays.asList(words));
+    public static String sentence="monkey llama tiger elephant donkey, gorilla lion rhinoceros";
+    static String[] words = sentence.split(" ");
 
-    public String selectARandomWord() {
+    public static String selectARandomWord() {
         Random random = new Random();
         int index = random.nextInt(words.length);
         return words[index];
@@ -26,7 +25,7 @@ public class Words {
     };
 
     public static String convertStringArrayListToString(ArrayList<String> letters) {
-        return letters.toString().replace("[", "").replace("]", "");
+        return letters.toString().replace("[", "").replace("]", "").replace(", ", "");
     }
 
     public static String convertWordToHash(String letters) {
@@ -34,7 +33,7 @@ public class Words {
         ArrayList<String> copyOfLetters = new ArrayList<>(convertWordToStringsArrayList(letters));
         for (int i = 0; i < copyOfLetters.size(); i++) {
             if(copyOfLetters.get(i).matches("[a-z]+")) {
-                copyOfLetters.set(i,"/_") ;
+                copyOfLetters.set(i,"/_ ") ;
             }
         }
         return convertStringArrayListToString(copyOfLetters);
@@ -42,8 +41,11 @@ public class Words {
 
 
 
+    //if true
+
     public static String changeLetterToCapital(String word, String letter) {
         ArrayList<String> wordAsArrayList = new ArrayList<>(convertWordToStringsArrayList(word));
+        letter = letter.toLowerCase();
         for (int i = 0; i < wordAsArrayList.size(); i++) {
             if(wordAsArrayList.get(i).equals(letter)){
                 wordAsArrayList.set(i, wordAsArrayList.get(i).toUpperCase());
@@ -51,6 +53,14 @@ public class Words {
         }
         return convertStringArrayListToString(wordAsArrayList);
     };
+
+
+
+    //if false
+
+
+
+
 
 
 }

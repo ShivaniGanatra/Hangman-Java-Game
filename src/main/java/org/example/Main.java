@@ -1,55 +1,60 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+
+import static org.example.UserInput.lettersGuessed;
+import static org.example.Words.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        Words hangmanWord = new Words();
+        UserInput user = new UserInput();
+        Scanner scanner = new Scanner(System.in);
+
         Results results = new Results();
-
-        for (String s : hangmanWord.wordList) {
-            System.out.println(s);
-        }
-
         String initialWord;
         String hashedWord;
+        int lives = 5;
+        String letter;
 
-        String randomWord = hangmanWord.selectARandomWord();
+        initialWord = selectARandomWord();
+        hashedWord = convertWordToHash(initialWord);
+        System.out.println("remove initial word later " + initialWord);
+        user.initialMessage(hashedWord);
 
-        Words.convertWordToHash("hello");
-        System.out.println( Words.convertWordToHash("hello"));
-        System.out.println( Words.convertWordToHash("hHJllo"));
+        while (lives > 0 && !(initialWord.toUpperCase().equals(initialWord))) {
+            user.askToEnterALetter();
+            letter = String.valueOf(scanner.next().charAt(0)); //if there's more than one letter just get first lettr
 
-        System.out.println(Words.changeLetterToCapital("hello","l"));
-//
-//        System.out.println("random word = " + randomWord);
-//
-//        ArrayList<String> charAsArrayList = hangmanWord.convertWordToStringsArrayList("randomword");
-//        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
+            if(Character.isLetter(letter.charAt(0))){ //check if letter turned to character is a letter
 
-//        String inputLetter = "O".toLowerCase();
-//        ArrayList<String> alteredWord = hangmanWord.changeLetterToCapital(charAsArrayList, inputLetter);
-//        System.out.println("alteredWord" + alteredWord);
-//        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
-//
-//        ArrayList<String> alteredWordToHash = hangmanWord.convertArraylistToHashArraylist(alteredWord);
-//        System.out.println("alteredWordToHash" + alteredWordToHash);
-//        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
-//
-//
-//        System.out.println(charAsArrayList);
-//        Boolean containsLetter = results.checkIfWordIncludesLetter(charAsArrayList,"a");
-//        System.out.println(containsLetter);
-//        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
-//        ArrayList<String> changeAgain = hangmanWord.convertArraylistToHashArraylist(charAsArrayList);
-//        System.out.println(hangmanWord.convertArrayListToString(changeAgain));
-//        System.out.println("wordAsArrayList ofStrings = " + charAsArrayList);
-//        ArrayList<String> alteredWord2 = hangmanWord.changeLetterToCapital(charAsArrayList, "d");
-//        System.out.println(alteredWord2);
-//        System.out.println(hangmanWord.convertArraylistToHashArraylist(alteredWord2));
-//        System.out.printf("hello \n %s ","shivani");
+                if(user.validInput(initialWord,letter)){ //if letter is in word
+                    user.addToArrayList(letter);
+                    initialWord = changeLetterToCapital(initialWord,letter);
+                    hashedWord = convertWordToHash(initialWord);
+                    results.outputMessage(hashedWord,lettersGuessed,lives);
+
+                } else if(lettersGuessed.contains(letter)) { //check is letter has been used before
+
+                    System.out.printf("You have entered %s before \n",letter);
+                    lives -= 1;
+                    results.outputMessage(hashedWord,lettersGuessed,lives);
+
+                } else { // letter but its incorrect
+                    user.addToArrayList(letter);
+                    lives -= 1;
+                    results.outputMessage(hashedWord,lettersGuessed,lives);
+                }
+            }
+
+        }  if (initialWord.toUpperCase().equals(initialWord)) { // if someones won
+            System.out.println("You've won");
+        } else {
+            System.out.println("You've lost");
+        }
 
     }
 }
