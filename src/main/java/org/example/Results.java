@@ -5,28 +5,18 @@ import java.util.Objects;
 
 import static org.example.Words.convertStringArrayListToString;
 public class Results {
-
-    //validate result
-    //print message from result
-
-    //    - The word with blanks / correct guesses re-displayed e.g E _ E _ \_ \_ \_ \_
-    //    - The letters guessed so far e.g Letters guessed: E G
-    //    - The amount of lives left e.g Lives: 8
-
     public void outputMessage(String hashedWord, ArrayList<String> lettersGuessed, int lives) {
         System.out.printf("""
-                The current word is: %s\s
-                the letters you have guessed include: %s\s
-                You have %d lives remaining \n""",hashedWord,lettersGuessed,lives);
+            The current word is: %s\s
+            the letters you have guessed include: %s\s
+            You have %d lives remaining \n""",hashedWord,lettersGuessed,lives);
     }
 
-    //if all letters are capitalised
     public void winningMessage (String word) {
-        System.out.println("This is the correct word ");
+        System.out.printf("This is the correct word!!!! Woohoo !!! You correctly got the word %s",word);
     }
 
-    //if there are no lives left
     public void losingMessage (String word) {
-        System.out.println("This is the incorrect word ");
+        System.out.printf("This is the incorrect word. The word was %s! Better luck next time",word);
     }
 }

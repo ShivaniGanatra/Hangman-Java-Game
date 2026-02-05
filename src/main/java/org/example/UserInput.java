@@ -10,8 +10,7 @@ public class UserInput {
     }
 
     public Boolean validInput(String word, String letter) {
-        //and letter isnt in array list and letter is only a - z regex
-        return Words.convertWordToStringsArrayList(word).contains(letter.toLowerCase());
+        return Words.convertWordToStringsArrayList(word).contains(letter.toLowerCase()) && !(lettersGuessed.contains(letter));
     }
 
     public void addToArrayList(String letter) {
