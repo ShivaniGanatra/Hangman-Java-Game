@@ -1,10 +1,10 @@
 # How to play
 In the main click play, and you will be asked to enter a letter
 
-If you guess correctly the hangman you will see a letter appear in the dashed word
+If you guess correctly the hangmanUtils you will see a letter appear in the dashed word
 
 If you enter incorrect or the same letters you've entered before the lives 
-you have will decimate and a hangman will begin to form
+you have will decimate and a hangmanUtils will begin to form
 
 If you enter something that is not a letter you will be asked again to enter a 
 letter
@@ -12,7 +12,7 @@ letter
 Keep entering a letter and depending on your choices you will win or lose
 
 # How it works
-Firstly there will be uninstantiated variables for the **initialWord**, 
+Firstly there will be unassigned variables for the **initialWord**, 
 **hashedWord** and **letter**
 
 The **initialWord** will use the static method _selectARandomWord()_ to select 
@@ -59,16 +59,16 @@ that
 -> You will now lose a life
 -> You will get a output message containing the unchanged hashedWord, the lettersGuessed
 ArrayList(which will be unchanged) and the lives (which will be decimated by 1)
--> You will see an image of a hangman (from a hangman array the index of lives 
-corresponds to the hangman used)
+-> You will see an image of a hangmanUtils (from a hangmanUtils array the index of lives 
+corresponds to the hangmanUtils used)
 
 Else the letter is not inside
 -> The letter will be added to the **lettersGuessed** ArrayList
 -> You will now lose a life
 -> You will get a output message containing the unchanged hashedWord, the lettersGuessed
 ArrayList(which will be changed) and the lives (which will be decimated by 1)
--> You will see an image of a hangman (from a hangman array the index of lives
-corresponds to the hangman used)
+-> You will see an image of a hangmanUtils (from a hangmanUtils array the index of lives
+corresponds to the hangmanUtils used)
 
 These steps will keep repeating until all the letters in initial word are 
 capitalised or the number of lives falls to zero. 

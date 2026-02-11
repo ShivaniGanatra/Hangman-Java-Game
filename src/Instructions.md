@@ -6,7 +6,7 @@
 
 ## Brief
 
-Develop a simple hangman game using Java![Instructions.md](Instructions.md)
+Develop a simple hangmanUtils game using Java![Instructions.md](Instructions.md)
 
 We want you to focus on demonstrating your understanding of the four pillars **OOP** in this project.
 
@@ -49,10 +49,10 @@ We want your program to have this core functionality:
 
 ## Extension
 
-Traditionally hangman is played with a pencil and paper, with a hangman figure drawn to indicate how many lives have been lost.
+Traditionally hangmanUtils is played with a pencil and paper, with a hangmanUtils figure drawn to indicate how many lives have been lost.
 The base is drawn for wrong answer, the upright post for another, the beam for another and so on.
 
-When the hangman is complete the player has lost. It’s possible to draw a hangman using ASCII characters - see below.
+When the hangmanUtils is complete the player has lost. It’s possible to draw a hangmanUtils using ASCII characters - see below.
 
 <br/>
 <div  style="display: flex; justify-content: space-around;">
@@ -97,7 +97,7 @@ ___|___
 
 <br/>
 
-Instead of just displaying the number of lives left have a go at displaying the hangman gradually getting drawn.
+Instead of just displaying the number of lives left have a go at displaying the hangmanUtils gradually getting drawn.
 
 This doesn’t have to be complex, don’t try to be too clever here!
 

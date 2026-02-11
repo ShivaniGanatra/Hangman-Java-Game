@@ -1,26 +1,24 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
-public class Words {
-    public static String sentence="monkey llama tiger elephant donkey, gorilla lion rhinoceros";
-    static String[] words = sentence.split(" ");
+public class WordUtils { //change class name change to wordsUtil
 
-    public static String selectARandomWord() {
-        Random random = new Random();
-        int index = random.nextInt(words.length);
-        return words[index];
-    };
+    public static HangmanWords selectARandomWord() {
+        return HangmanWords.values()[new Random().nextInt(HangmanWords.values().length)];
+    }
+        //int index = random.nextInt(words.length);
+        //return words[index];
+
 
     public static ArrayList<String> convertWordToStringsArrayList(String word) {
         char[] charsArray = word.toCharArray();
-        ArrayList<String> letters = new ArrayList<String>();
+        ArrayList<String> letters = new ArrayList<>();
         for (int i = 0; i < charsArray.length; i++) {
             letters.add(String.valueOf(charsArray[i]));
         }return letters;
-    };
+    }
 
     public static String convertStringArrayListToString(ArrayList<String> letters) {
         return letters.toString().replace("[", "").replace("]", "").replace(", ", "");
@@ -35,7 +33,7 @@ public class Words {
             }
         }
         return convertStringArrayListToString(copyOfLetters);
-    };
+    }
 
     public static String changeLetterToCapital(String word, String letter) {
         ArrayList<String> wordAsArrayList = new ArrayList<>(convertWordToStringsArrayList(word));
@@ -46,6 +44,6 @@ public class Words {
             }
         }
         return convertStringArrayListToString(wordAsArrayList);
-    };
+    }
 }
 

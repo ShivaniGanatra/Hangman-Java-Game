@@ -15,7 +15,7 @@
 * Property to store life
 * method -
   * If letter in word is true + word is changed and printed
-  * If letter in word is false -> Player loses a life + hangman is shown
+  * If letter in word is false -> Player loses a life + hangmanUtils is shown
 
 ## Words
  * Contains property which is an Arraylist of words
